@@ -2,7 +2,7 @@ import '@/app/styles/globals.css';
 
 export const metadata = {
   title: 'De-Yi Huang',
-  description: "De-Yi Huang's personal website",
+  description: 'De-Yi Huang personal website',
   author: 'De-Yi Huang',
   creator: 'De-Yi Huang',
   themeColor: '#0088FF',
@@ -14,7 +14,7 @@ export const metadata = {
   referrer: 'origin-when-cross-origin',
   openGraph: {
     title: 'De-Yi Huang',
-    description: "De-Yi Huang's personal website",
+    description: 'De-Yi Huang personal website',
     type: 'website',
     url: 'https://deyi.site',
     image: 'https://northwalker.web.app/img/green-thumbnail.jpg',
@@ -38,6 +38,9 @@ export const metadata = {
       'en-US': 'https://deyi.site',
       // 'zh-TW': 'https://deyi.site/zh-TW',
     },
+  },
+  other: {
+    version: process.env.NEXT_PUBLIC_GITHUB_SHA || 'Develop',
   },
 };
 
