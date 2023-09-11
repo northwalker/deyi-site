@@ -1,5 +1,5 @@
 // Home.js
-import styles from '../styles/home.module.css';
+import styles from '../styles/profile.module.css';
 import Link from 'next/link';
 
 export default function LanguagePage() {
