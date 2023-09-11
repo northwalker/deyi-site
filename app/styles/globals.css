@@ -33,44 +33,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.container {
-  position: relative;
-  margin: 0 auto;
-  max-width: 620px;
-  padding: 0 16px;
-  padding-top: 120px;
-
-  text-align: left;
-  font-size: 18px;
-  color: var(--text-color);
-  line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-  .container {
-    position: relative;
-    margin: 0 auto;
-    padding-top: 16px;
-  }
-}
-
-
 a {
   color: #0088ff;
-  text-decoration: none;
-}
-
-@media (hover: hover) {
-  a:hover {
-    text-decoration: underline;
-  }
-}
-
-.email-link {
-  margin-left: 8px;
-  text-decoration: none;
   color: var(--primary-color);
+  text-decoration: none;
   font-size: 16px;
   font-weight: 500;
   transition: all 0.4s ease;
@@ -78,36 +44,8 @@ a {
 }
 
 @media (hover: hover) {
-  .email-link:hover {
+  a:hover {
     text-decoration: underline;
     color: var(--secondary-color);
-  }
-}
-
-.social-link {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  text-decoration: none;
-  color: var(--font-color);
-  /* SVG icons */
-  fill: var(--font-color);
-}
-
-.social-link svg {
-  margin-right: 4px;
-}
-
-.social-link:not(:last-child) {
-  margin-right: 16px;
-}
-
-
-@media (hover: hover) {
-  .social-link:hover {
-    color: var(--primary-color);
-    fill: var(--primary-color);
-    transition: all 0.4s ease;
   }
 }

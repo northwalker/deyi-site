@@ -1,8 +1,8 @@
 // Home.js
-import styles from './styles/home.module.css';
+import styles from '../styles/home.module.css';
 import Link from 'next/link';
 
-export default function Home() {
+export default function LanguagePage() {
   return (
     <div className={styles.container}>
       <header>
@@ -16,23 +16,19 @@ export default function Home() {
           priority
         />
         </div> */}
-        <h1 className={styles.title}>De-Yi Huang</h1>
+        <h1 className={styles.title}>黃得一</h1>
       </header>
       <main>
         <div>
-          <p>I am a software and front-end engineer. </p>
-          <p>
-            Based in Taipei, Taiwan. Interesting to learn new informations and
-            technologies. Looking for new job opportunitie now : )
-          </p>
+          <p>一個前端及軟體開發的工程師</p>
+          <p>: )</p>
         </div>
-
         <div className={styles.contact}>
           <p>
-            Email:{'  '}
+            Email:{' '}
             <a href="mailto:northwalker28@gmail.com">northwalker28@gmail.com</a>
           </p>
-          <div>You can find me on</div>
+          <div>連結：</div>
           <p>
             <a
               className={styles.socialLink}
@@ -91,7 +87,7 @@ export default function Home() {
           </p>
           <div>- -</div>
           <p>
-            <Link className={styles.socialLink} href="/zh-TW">
+            <Link className={styles.socialLink} href="/">
               <svg
                 width="24"
                 height="24"
@@ -100,7 +96,7 @@ export default function Home() {
               >
                 <path d="M20.58 19.37L17.59 11.01C17.38 10.46 16.91 10.12 16.37 10.12C15.83 10.12 15.37 10.46 15.14 11.03L12.16 19.37C12.02 19.76 12.22 20.19 12.61 20.33C13 20.47 13.43 20.27 13.57 19.88L14.19 18.15H18.54L19.16 19.88C19.27 20.19 19.56 20.38 19.87 20.38C19.95 20.38 20.04 20.37 20.12 20.34C20.51 20.2 20.71 19.77 20.57 19.38L20.58 19.37ZM14.74 16.64L16.38 12.05L18.02 16.64H14.74ZM12.19 7.85C9.92999 11.42 7.89 13.58 5.41 15.02C5.29 15.09 5.16 15.12 5.04 15.12C4.78 15.12 4.53 14.99 4.39 14.75C4.18 14.39 4.3 13.93 4.66 13.73C6.75999 12.51 8.48 10.76 10.41 7.86H4.12C3.71 7.86 3.37 7.52 3.37 7.11C3.37 6.7 3.71 6.36 4.12 6.36H7.87V4.38C7.87 3.97 8.21 3.63 8.62 3.63C9.02999 3.63 9.37 3.97 9.37 4.38V6.36H13.12C13.53 6.36 13.87 6.7 13.87 7.11C13.87 7.52 13.53 7.86 13.12 7.86H12.18L12.19 7.85ZM12.23 15.12C12.1 15.12 11.97 15.09 11.85 15.02C11.2 14.64 10.57 14.22 9.97999 13.78C9.64999 13.53 9.58 13.06 9.83 12.73C10.08 12.4 10.55 12.33 10.88 12.58C11.42 12.99 12.01 13.37 12.61 13.72C12.97 13.93 13.09 14.39 12.88 14.75C12.74 14.99 12.49 15.12 12.23 15.12Z" />
               </svg>
-              正體中文
+              English
             </Link>
             <a
               className={styles.socialLink}
@@ -119,7 +115,7 @@ export default function Home() {
               >
                 <path d="M6,8 C9.33333333,8 11,8 11,8 C11,8 11,8.66666667 11,10 L6,10 L6,18 L14,18 L14,13 L16,13 L16,18 C16,19.1045695 15.1045695,20 14,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,10 C4,8.8954305 4.8954305,8 6,8 Z M16.613961,6 L12,6 L12,4 L20,4 L20,12 L18,12 L18,7.44238816 L12.6642136,12.7781746 L11.25,11.363961 L16.613961,6 Z" />
               </svg>
-              Resume
+              履歷
             </a>
           </p>
         </div>

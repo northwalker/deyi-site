@@ -1,4 +1,5 @@
 import '@/app/styles/globals.css';
+import { usePathname } from 'next/navigation';
 
 export const metadata = {
   title: 'De-Yi Huang',
@@ -35,8 +36,10 @@ export const metadata = {
   alternates: {
     canonical: 'https://deyi.site',
     languages: {
+      en: 'https://deyi.site',
       'en-US': 'https://deyi.site',
-      // 'zh-TW': 'https://deyi.site/zh-TW',
+      zh: 'https://deyi.site/zh-TW',
+      'zh-TW': 'https://deyi.site/zh-TW',
     },
   },
   other: {
@@ -47,7 +50,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="container">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
