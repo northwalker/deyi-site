@@ -10,8 +10,8 @@ jobs:
   Deploy-Production:
     runs-on: ubuntu-latest
     environment:
-    name: Production
-    url: https://deyi.site
+      name: Production
+      url: https://deyi.site
     steps:
       - name: Hello Github Actions
         run: echo Hello Github Actions!
