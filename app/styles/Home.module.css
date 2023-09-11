@@ -1,0 +1,10 @@
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--title-color)
+}
+
+.contact {
+    margin-top: 24px 0;
+}

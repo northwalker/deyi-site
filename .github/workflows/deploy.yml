@@ -1,0 +1,38 @@
+name: Vercel Production Deployment
+on:
+  push:
+    branches:
+      - main
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+jobs:
+  Deploy-Production:
+    runs-on: ubuntu-latest
+    environment:
+    name: Production
+    url: https://deyi.site
+    steps:
+      - name: Hello Github Actions
+        run: echo Hello Github Actions!
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+      - name: Install dependencies
+        run: npm install
+      # - name: Lint
+      #   run: npm run lint
+      # - name: Test
+      #   run: npm run test
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy Project Artifacts to Vercel
+        run: echo $(vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}) >> $GITHUB_STEP_SUMMARY
