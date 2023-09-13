@@ -1,5 +1,4 @@
-import '@/app/styles/globals.css';
-import { usePathname } from 'next/navigation';
+import './globals.css';
 
 export const metadata = {
   title: 'De-Yi Huang',
@@ -49,8 +48,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="dark">
+      <body className="bg-white dark:bg-[#151615]">{children}</body>
     </html>
   );
 }

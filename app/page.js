@@ -1,24 +1,13 @@
 // Home.js
-import styles from './styles/profile.module.css';
 import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="relative mx-auto my-0 max-w-2xl px-4 pb-0 pt-4 text-left text-lg md:pt-32">
       <header>
-        {/* <div className="Avatar">
-          <Image
-          className={styles.borderCircle}
-          src="/images/profile.jpg"
-          alt="Profile"
-          width={180}
-          height={180}
-          priority
-        />
-        </div> */}
-        <h1 className={styles.title}>De-Yi Huang</h1>
+        <h1 className="text-slate-900 dark:text-slate-50">De-Yi Huang</h1>
       </header>
-      <main>
+      <main className="text-gray-600 dark:text-slate-200">
         <div>
           <p>I am a software and front-end engineer. </p>
           <p>
@@ -27,15 +16,20 @@ export default function Home() {
           </p>
         </div>
 
-        <div className={styles.contact}>
-          <p>
-            Email:{'  '}
-            <a href="mailto:northwalker28@gmail.com">northwalker28@gmail.com</a>
+        <div>
+          <p className="my-3">
+            Email:{' '}
+            <a
+              className="text-primary hover:text-secondary text-base transition-all duration-500 ease-in-out hover:underline"
+              href="mailto:northwalker28@gmail.com"
+            >
+              northwalker28@gmail.com
+            </a>
           </p>
-          <div>You can find me on</div>
+          <div className="my-3 mt-8">You can find me on</div>
           <p>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/northwalker"
@@ -43,6 +37,7 @@ export default function Home() {
               aria-label="Github Link"
             >
               <svg
+                className="mr-1"
                 width="24"
                 height="24"
                 viewBox="0 0 20 20"
@@ -53,7 +48,7 @@ export default function Home() {
               GitHub
             </a>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://twitter.com/northwalker28"
@@ -71,7 +66,7 @@ export default function Home() {
               Twitter
             </a>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.linkedin.com/in/de-yi-huang"
@@ -91,7 +86,7 @@ export default function Home() {
           </p>
           <div>- -</div>
           <p>
-            <Link className={styles.socialLink} href="/zh-TW">
+            <Link className="social-link" href="/zh-TW">
               <svg
                 width="24"
                 height="24"
@@ -103,7 +98,7 @@ export default function Home() {
               正體中文
             </Link>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://northwalker.web.app/resume/DE-YI_HUANG_Resume.pdf"

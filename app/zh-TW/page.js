@@ -1,37 +1,32 @@
-// Home.js
-import styles from '../styles/profile.module.css';
+// Zh-TW.js
 import Link from 'next/link';
 
 export default function LanguagePage() {
   return (
-    <div className={styles.container}>
+    <div className="relative mx-auto my-0 max-w-2xl px-4 pb-0 pt-4 text-left text-lg md:pt-32">
       <header>
-        {/* <div className="Avatar">
-          <Image
-          className={styles.borderCircle}
-          src="/images/profile.jpg"
-          alt="Profile"
-          width={180}
-          height={180}
-          priority
-        />
-        </div> */}
-        <h1 className={styles.title}>黃得一</h1>
+        <h1 className="text-slate-900 dark:text-slate-50">黃得一</h1>
       </header>
-      <main>
+      <main className="text-gray-600 dark:text-slate-200">
         <div>
-          <p>一個前端及軟體開發的工程師</p>
+          <p>一個前端及軟體開發的工程師。</p>
           <p>: )</p>
         </div>
-        <div className={styles.contact}>
-          <p>
+
+        <div>
+          <p className="my-3">
             Email:{' '}
-            <a href="mailto:northwalker28@gmail.com">northwalker28@gmail.com</a>
+            <a
+              className="text-primary hover:text-secondary text-base transition-all duration-500 ease-in-out hover:underline"
+              href="mailto:northwalker28@gmail.com"
+            >
+              northwalker28@gmail.com
+            </a>
           </p>
-          <div>連結：</div>
+          <div className="my-3 mt-8">連結：</div>
           <p>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://github.com/northwalker"
@@ -39,6 +34,7 @@ export default function LanguagePage() {
               aria-label="Github Link"
             >
               <svg
+                className="mr-1"
                 width="24"
                 height="24"
                 viewBox="0 0 20 20"
@@ -49,7 +45,7 @@ export default function LanguagePage() {
               GitHub
             </a>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://twitter.com/northwalker28"
@@ -67,7 +63,7 @@ export default function LanguagePage() {
               Twitter
             </a>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://www.linkedin.com/in/de-yi-huang"
@@ -87,7 +83,7 @@ export default function LanguagePage() {
           </p>
           <div>- -</div>
           <p>
-            <Link className={styles.socialLink} href="/">
+            <Link className="social-link" href="/">
               <svg
                 width="24"
                 height="24"
@@ -99,7 +95,7 @@ export default function LanguagePage() {
               English
             </Link>
             <a
-              className={styles.socialLink}
+              className="social-link"
               target="_blank"
               rel="noopener noreferrer"
               href="https://northwalker.web.app/resume/DE-YI_HUANG_Resume.pdf"
@@ -115,7 +111,7 @@ export default function LanguagePage() {
               >
                 <path d="M6,8 C9.33333333,8 11,8 11,8 C11,8 11,8.66666667 11,10 L6,10 L6,18 L14,18 L14,13 L16,13 L16,18 C16,19.1045695 15.1045695,20 14,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,10 C4,8.8954305 4.8954305,8 6,8 Z M16.613961,6 L12,6 L12,4 L20,4 L20,12 L18,12 L18,7.44238816 L12.6642136,12.7781746 L11.25,11.363961 L16.613961,6 Z" />
               </svg>
-              履歷
+              Resume
             </a>
           </p>
         </div>
