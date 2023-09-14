@@ -1,5 +1,6 @@
 // Home.js
 import Link from 'next/link';
+import DarkModeSwitcher from '../components/DarkModeSwitcher.js';
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
           <p className="my-3">
             Email:{' '}
             <a
-              className="text-primary hover:text-secondary text-base transition-all duration-500 ease-in-out hover:underline"
+              className="text-base text-primary transition-all duration-500 ease-in-out hover:text-secondary hover:underline"
               href="mailto:northwalker28@gmail.com"
             >
               northwalker28@gmail.com
@@ -119,6 +120,7 @@ export default function Home() {
           </p>
         </div>
       </main>
+      <DarkModeSwitcher />
     </div>
   );
 }
