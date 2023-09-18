@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Throttle demo</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>Throttled: <span id="throttleDiv"></span></h1>
+      <div class="board"></div>
+    </div>
+    <script>
+      const board = document.querySelector('.board');
+      for (let i = 0; i < 30; i++) {
+        const p = document.createElement('p');
+        p.textContent = 'paragraph';
+        board.append(p);
+      }
+    </script>
+
+    <script>
+      const throttle = (callback, timeout = 500) => {
+        let timer;
+        return (...arg) => {
+          if (timer) return;
+          timer = setTimeout(() => {
+            callback(...arg);
+            timer = null;
+          }, timeout);
+        };
+      };
+
+      const handleScroll = () => {
+        console.log('Scroll...');
+        const clientHight = document.documentElement.clientHeight;
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+
+        console.log(clientHight, scrollTop, scrollHeight);
+        if (scrollTop + clientHight > scrollHeight - 10) {
+          // scrollTop + clientHight / scrollHeight > 0.9
+          console.log('scroll to bottom...');
+          for (let i = 0; i < 30; i++) {
+            const p = document.createElement('p');
+            p.textContent = 'append paragraph';
+            board.append(p);
+          }
+        }
+      };
+      document.addEventListener('scroll', throttle(handleScroll));
+    </script>
+  </body>
+</html>

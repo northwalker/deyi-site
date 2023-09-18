@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Debounc demo</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" />
+      <h1>Default: <span id="defaultDiv"></span></h1>
+      <h1>Debounced: <span id="debounceDiv"></span></h1>
+    </div>
+
+    <script>
+      const debounce = (callback, timeout = 1000) => {
+        let timer = null;
+        return (...arg) => {
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            callback(...arg);
+          }, timeout);
+        };
+      };
+
+      const inputElement = document.querySelector('input');
+      const defaultElement = document.querySelector('#defaultDiv');
+      const debouncedElement = document.querySelector('#debounceDiv');
+      const updateDefaultValue = (data) => {
+        defaultElement.innerHTML = data;
+      };
+      const updateDebouncedValue = debounce((data) => {
+        debouncedElement.innerHTML = data;
+      }, 1500);
+      inputElement.addEventListener('input', (e) => {
+        updateDefaultValue(e.target.value);
+        updateDebouncedValue(e.target.value);
+      });
+    </script>
+  </body>
+</html>
