@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intersection Observer and Infinite Scroll Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer base {
+        h1 {
+          @apply my-4 text-2xl font-semibold tracking-wider;
+        }
+      }
+      @layer components {
+        .container {
+          @apply mx-auto my-0 max-w-3xl text-center;
+        }
+        .card {
+          @apply w-160 h-120 relative mx-auto my-4 border border-gray-900 opacity-0 transition-opacity duration-500 ease-linear;
+        }
+        .card.show {
+          @apply opacity-100;
+        }
+      }
+      @layer utilities {
+        .content-auto {
+          content-visibility: auto;
+        }
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            spacing: {
+              160: '40rem',
+              120: '30rem',
+            },
+            colors: {
+              primary: '#0088ff',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Intersection Observer and Infinite Scroll Demo</h1>
+      <div class="card-container"></div>
+    </div>
+    <script>
+      const cards = document.querySelectorAll('.card');
+      const cardContainer = document.querySelector('.card-container');
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          console.log('entries', entries);
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target?.classList.add('show');
+              observer.unobserve(entry.target);
+
+              if (entry.target?.classList.contains('last')) {
+                entry.target?.classList.remove('last');
+                loadMore();
+              }
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+        }
+      );
+
+      const loadMore = function () {
+        for (let i = 0; i < 10; i++) {
+          const card = document.createElement('div');
+          // card.textContent = 'Card';
+          card.classList.add('card');
+          const img = document.createElement('img');
+          img.src = 'https://picsum.photos/640/480';
+          card.append(img);
+          if (i === 9) card.classList.add('last');
+          observer.observe(card);
+          cardContainer.append(card);
+        }
+      };
+
+      // init
+      loadMore();
+    </script>
+  </body>
+</html>
