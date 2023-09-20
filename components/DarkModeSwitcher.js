@@ -27,9 +27,9 @@ export default function DarkModeSwitcher() {
     else setCurrentMode(MODE.LIGHT);
   }, []);
   return (
-    <div className="fixed bottom-4 right-4 flex h-8 w-8 items-center justify-center">
+    <div className="fixed right-4 top-4 flex h-8 w-8 items-center justify-center">
       <button onClick={changeMode}>
-        {currentMode === MODE.DARK ? (
+        {currentMode !== MODE.DARK ? (
           <Image
             priority
             src={LightModeIcon}
