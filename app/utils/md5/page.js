@@ -8,31 +8,61 @@ export default function Page() {
   const [fileData, setFileData] = useState({});
   const [fileMd5, setFileMd5] = useState('');
 
+  const handleFileSliceToSparkMD5 = async (file) => {
+    const chunkSize = 2 * 1024 * 1024; // Read in chunks of 2MB
+    const chunks = Math.ceil(file.size / chunkSize);
+    let currentChunk = 0;
+    const blobSlice = File.prototype.slice;
+    // eslint-disable-next-line
+    const spark = new SparkMD5.ArrayBuffer();
+    const fileReader = new FileReader();
+    fileReader.onerror = () => console.log('Oops, something went wrong.');
+    fileReader.onload = (e) => {
+      console.log('Read chunk', currentChunk + 1, 'of', chunks);
+      spark.append(e.target.result); // Append array buffer
+      currentChunk++;
+      if (currentChunk < chunks) {
+        readFile();
+      } else {
+        // File upload completed
+        const computedMd5 = spark.end();
+        console.log('Computed hash', computedMd5);
+        setFileMd5(computedMd5);
+      }
+    };
+    const readFile = () => {
+      const start = currentChunk * chunkSize,
+        end = start + chunkSize >= file.size ? file.size : start + chunkSize;
+      fileReader.readAsArrayBuffer(blobSlice.call(file, start, end));
+    };
+    readFile();
+  };
+
+  // const handleFileToSparkMD5 = (file) => {
+  //   // eslint-disable-next-line
+  //   const spark = new SparkMD5.ArrayBuffer();
+  //   const fileReader = new FileReader();
+  //   fileReader.readAsArrayBuffer(file);
+  //   fileReader.onload = (e) => {
+  //     spark.append(e.target.result); // Append array buffer
+  //     const computedMd5 = spark.end();
+  //     console.log('Computed hash', computedMd5);
+  //     setFileMd5(computedMd5);
+  //   };
+  //   fileReader.onerror = () => console.log('Oops, something went wrong.');
+  // };
+
   const handleOnChange = useCallback(() => {
     console.log('handleOnChange', inputRef.current.files[0]);
     const file = inputRef.current.files[0];
-
     if (!file) {
       console.log('Clear file...');
       return setFileMd5('');
     }
 
     setFileData({ name: file.name, size: file.size, type: file.type });
-    // eslint-disable-next-line
-    const spark = new SparkMD5.ArrayBuffer();
-    const fileReader = new FileReader();
-    // const chunkSize = 2 * 1024 * 1024; // Read in chunks of 2MB
-    // const chunks = Math.ceil(file.size / chunkSize);
-    // let currentChunk = 0;
-    fileReader.readAsArrayBuffer(file);
-    fileReader.onload = (e) => {
-      console.log('FileReader finished loading');
-      spark.append(e.target.result); // Append array buffer
-      const computedMd5 = spark.end();
-      console.log('Computed hash', computedMd5);
-      setFileMd5(computedMd5);
-    };
-    fileReader.onerror = () => console.log('Oops, something went wrong.');
+    // handleFileToSparkMD5(file);
+    handleFileSliceToSparkMD5(file);
   }, []);
 
   return (
