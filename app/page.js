@@ -8,7 +8,7 @@ export default function Home() {
       <header>
         <h1 className="text-slate-900 dark:text-slate-50">De-Yi Huang</h1>
       </header>
-      <main className="animate-fadeInUp text-gray-600 dark:text-slate-200">
+      <main className="animate-fadeInUp text-neutral-600 dark:text-slate-200">
         <div>
           <p>I am a software and front-end engineer. </p>
           <p>

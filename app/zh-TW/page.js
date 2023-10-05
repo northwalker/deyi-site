@@ -8,10 +8,11 @@ export default function LanguagePage() {
       <header>
         <h1 className="text-slate-900 dark:text-slate-50">黃得一</h1>
       </header>
-      <main className="animate-fadeInUp text-gray-600 dark:text-slate-200">
+      <main className="animate-fadeInUp text-neutral-600 dark:text-slate-200">
         <div>
           <p>一個前端及軟體開發的工程師。</p>
-          <p>: )</p>
+          <p>有路，咱沿路唱歌；無路，咱蹽溪過嶺。</p>
+          <p>：）</p>
         </div>
 
         <div>
