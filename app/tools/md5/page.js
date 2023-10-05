@@ -65,6 +65,16 @@ export default function Page() {
     handleFileSliceToSparkMD5(file);
   }, []);
 
+  const handleCopy = useCallback(async () => {
+    if (!navigator?.clipboard) return;
+    try {
+      await navigator.clipboard.writeText(fileMd5);
+      console.log('Hash copied', fileMd5);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [fileMd5]);
+
   return (
     <>
       <Script
@@ -85,20 +95,28 @@ export default function Page() {
               <div>
                 <div>
                   <div className="flex flex-row">
-                    <div className="w-24">File Name:</div>
+                    <div className="w-24">File Name: </div>
                     <div>{fileData?.name}</div>
                   </div>
                   <div className="flex flex-row">
-                    <div className="w-24">File Type:</div>
+                    <div className="w-24">File Type: </div>
                     <div>{fileData?.type}</div>
                   </div>
                   <div className="flex flex-row">
-                    <div className="w-24">File Size:</div>
+                    <div className="w-24">File Size: </div>
                     <div>{formatBytes(fileData?.size)}</div>
                   </div>
                   <div className="mt-4 flex flex-row flex-wrap">
-                    <div className="w-36">Computed Hash:</div>
-                    <div className="break-all">{fileMd5}</div>
+                    <div className="w-36">Computed Hash: </div>
+                    <div className="break-all">{fileMd5} </div>
+                    {!!fileMd5 && !!navigator?.clipboard && (
+                      <button
+                        className="mx-auto mt-2 rounded border border-white px-4 py-1"
+                        onClick={handleCopy}
+                      >
+                        Copy
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
