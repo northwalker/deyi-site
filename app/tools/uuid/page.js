@@ -26,21 +26,25 @@ export default function Page() {
           <div>{value}</div>
         </h1>
 
-        <button
-          className="mx-auto mt-2 rounded border border-white px-4 py-1"
-          onClick={() => {
-            setValue(getRandomUUID());
-          }}
-        >
-          Random UUID
-        </button>
-        {!!value && (
+        <div className="ml-4 mt-2">
           <button
-            className="ml-4 mt-2 rounded border border-white px-4 py-1"
-            onClick={handleCopy}
+            className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
+            onClick={() => {
+              setValue(getRandomUUID());
+            }}
           >
-            Copy
+            Random UUID
           </button>
+        </div>
+        {!!value && !!navigator?.clipboard && (
+          <div className="ml-4 mt-2">
+            <button
+              className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
+              onClick={handleCopy}
+            >
+              Copy
+            </button>
+          </div>
         )}
       </section>
     </div>

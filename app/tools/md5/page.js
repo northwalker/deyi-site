@@ -109,13 +109,16 @@ export default function Page() {
                   <div className="mt-4 flex flex-row flex-wrap">
                     <div className="w-36">Computed Hash: </div>
                     <div className="break-all">{fileMd5} </div>
+
                     {!!fileMd5 && !!navigator?.clipboard && (
-                      <button
-                        className="mx-auto mt-2 rounded border border-white px-4 py-1"
-                        onClick={handleCopy}
-                      >
-                        Copy
-                      </button>
+                      <div className="mx-auto mt-2 ">
+                        <button
+                          className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
+                          onClick={handleCopy}
+                        >
+                          Copy
+                        </button>
+                      </div>
                     )}
                   </div>
                 </div>

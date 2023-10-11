@@ -41,12 +41,34 @@ export default function Page() {
             onChange={(e) => setMaxNumber(e.target.value)}
           />
         </div>
-        <div>
+        <div className="mx-auto mt-4 flex items-center justify-center [&>button]:mr-4">
           <button
-            className="mx-auto mt-2 rounded border border-white px-4 py-1"
+            className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
+            onClick={() => {
+              setMinNumber(1);
+              setMaxNumber(2);
+              handleRandom();
+            }}
+          >
+            Mode: Flip a Coin
+          </button>
+          <button
+            className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
+            onClick={() => {
+              setMinNumber(1);
+              setMaxNumber(6);
+              handleRandom();
+            }}
+          >
+            Mode: Roll the dice
+          </button>
+        </div>
+        <div className="mx-auto mt-4">
+          <button
+            className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
             onClick={handleRandom}
           >
-            Random
+            Random a number!
           </button>
         </div>
       </section>
