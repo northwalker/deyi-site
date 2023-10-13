@@ -6,13 +6,16 @@ export default function Page() {
       <section className="mt-8">
         <ul>
           <li>
+            <Link href="/tools/random">Random</Link>
+          </li>
+          <li>
             <Link href="/tools/uuid">UUID</Link>
           </li>
           <li>
             <Link href="/tools/md5">MD5</Link>
           </li>
           <li>
-            <Link href="/tools/random">Random</Link>
+            <Link href="/tools/shuffle">Shuffle</Link>
           </li>
         </ul>
       </section>
