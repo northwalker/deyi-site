@@ -28,7 +28,10 @@ export default function DarkModeSwitcher() {
   }, []);
   return (
     <div className="flex h-8 w-8 items-center justify-center">
-      <button onClick={changeMode}>
+      <button
+        onClick={changeMode}
+        aria-label={currentMode === MODE.DARK ? 'Light Mode' : 'Dark Mode'}
+      >
         {currentMode === MODE.DARK ? (
           <Image
             priority

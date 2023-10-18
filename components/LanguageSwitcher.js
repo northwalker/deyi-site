@@ -7,6 +7,7 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
   return (
     <Link
+      aria-label={pathname === '/' ? '繁體中文' : 'English'}
       className="flex h-8 w-8 items-center justify-center"
       href={pathname === '/' ? '/zh-TW' : '/'}
     >

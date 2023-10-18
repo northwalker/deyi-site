@@ -23,6 +23,7 @@ export default function Home() {
             <a
               className="text-base text-primary transition-all duration-500 ease-in-out hover:text-secondary hover:underline"
               href="mailto:northwalker28@gmail.com"
+              aria-label="Email"
             >
               northwalker28@gmail.com
             </a>
@@ -87,7 +88,11 @@ export default function Home() {
           </p>
           <div>- -</div>
           <p>
-            {/* <Link className="social-link" href="/zh-TW">
+            {/* <Link
+              className="social-link"
+              href="/zh-TW"
+              aria-label="繁體中文"
+            >
               <svg
                 width="24"
                 height="24"
