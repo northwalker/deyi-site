@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       animation: {
         fadeInUp: 'fadeInUp 0.4s linear',
+        ripple: 'ripple 0.4s linear',
       },
       keyframes: {
         fadeInUp: {
@@ -20,6 +21,16 @@ module.exports = {
           '100%': {
             opacity: 1,
             transform: 'translateY(0px)',
+          },
+        },
+        ripple: {
+          from: {
+            transform: 'scale(0)',
+            opacity: 1,
+          },
+          to: {
+            transform: 'scale(4)',
+            opacity: 0,
           },
         },
       },

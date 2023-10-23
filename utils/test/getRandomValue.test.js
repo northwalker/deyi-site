@@ -1,6 +1,5 @@
 function getRandomNumber(min = 1, max = 100) {
-  // eslint-disable-next-line no-undef
-  const array = new Uint32Array(1);
+  const array = new Uint32Array(10);
   crypto.getRandomValues(array)[0];
   const range = max - min + 1;
   return (array[0] % range) + min;
