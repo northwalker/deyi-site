@@ -1,12 +1,15 @@
 'use client';
 import { useCallback, useEffect, useState } from 'react';
+import Image from 'next/image';
 import { getRandomUUID } from '@/utils/getRandomValue.js';
+import MaterialButton from '@/components/MaterialButton.js';
+import CopyIcon from '@/public/images/copy-icon.svg';
 
 export default function Page() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(null);
 
   useEffect(() => {
-    setValue(getRandomUUID());
+    // setValue(getRandomUUID());
   }, []);
 
   const handleCopy = useCallback(async () => {
@@ -21,31 +24,39 @@ export default function Page() {
 
   return (
     <div className="relative mx-auto my-0 max-w-2xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-32">
-      <section className="mt-8">
-        <h1>
-          <div>{value}</div>
-        </h1>
+      <section>
+        <h1>UUID</h1>
+        <h2 className="flex items-center justify-center">
+          <div>
+            {value === null ? 'Click button to generate an UUID...' : value}
+          </div>
+          {!!value && !!navigator?.clipboard && (
+            <div>
+              <MaterialButton
+                className="rounded-full border-0 py-4"
+                onClick={handleCopy}
+              >
+                <Image
+                  priority
+                  src={CopyIcon}
+                  height={24}
+                  width={24}
+                  alt="Copy"
+                />
+              </MaterialButton>
+            </div>
+          )}
+        </h2>
 
-        <div className="ml-4 mt-2">
-          <button
-            className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
+        <div className="ml-4 mt-8">
+          <MaterialButton
             onClick={() => {
               setValue(getRandomUUID());
             }}
           >
-            Random UUID
-          </button>
+            Generate an UUID
+          </MaterialButton>
         </div>
-        {!!value && !!navigator?.clipboard && (
-          <div className="ml-4 mt-2">
-            <button
-              className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
-              onClick={handleCopy}
-            >
-              Copy
-            </button>
-          </div>
-        )}
       </section>
     </div>
   );

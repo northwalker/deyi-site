@@ -1,7 +1,10 @@
 'use client';
-import Script from 'next/script';
 import { useCallback, useRef, useState } from 'react';
+import Script from 'next/script';
+import Image from 'next/image';
 import formatBytes from '@/utils/formatBytes.js';
+import MaterialButton from '@/components/MaterialButton.js';
+import CopyIcon from '@/public/images/copy-icon.svg';
 
 export default function Page() {
   const inputRef = useRef(null);
@@ -87,8 +90,11 @@ export default function Page() {
           console.error('Script failed to load', e);
         }}
       />
-      <div className="relative mx-auto my-0 max-w-xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-32">
-        <input type="file" ref={inputRef} onChange={handleOnChange} />
+      <div className="relative mx-auto my-0 max-w-2xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-32">
+        <h1>MD5</h1>
+        <section className="mt-8">
+          <input type="file" ref={inputRef} onChange={handleOnChange} />
+        </section>
         <section className="mt-8">
           {fileMd5 && (
             <div className="border border-orange-300 p-4 text-left">
@@ -106,18 +112,23 @@ export default function Page() {
                     <div className="w-24">File Size: </div>
                     <div>{formatBytes(fileData?.size)}</div>
                   </div>
-                  <div className="mt-4 flex flex-row flex-wrap">
+                  <div className="mt-4 flex flex-row flex-wrap items-center justify-start">
                     <div className="w-36">Computed Hash: </div>
-                    <div className="break-all">{fileMd5} </div>
-
+                    <div className="break-all">{fileMd5}</div>
                     {!!fileMd5 && !!navigator?.clipboard && (
-                      <div className="mx-auto mt-2 ">
-                        <button
-                          className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
+                      <div>
+                        <MaterialButton
+                          className="rounded-full border-0 py-4"
                           onClick={handleCopy}
                         >
-                          Copy
-                        </button>
+                          <Image
+                            priority
+                            src={CopyIcon}
+                            height={24}
+                            width={24}
+                            alt="Copy"
+                          />
+                        </MaterialButton>
                       </div>
                     )}
                   </div>

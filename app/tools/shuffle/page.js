@@ -1,6 +1,7 @@
 'use client';
 import { useCallback, useState } from 'react';
 import shuffle from '@/utils/shuffle.js';
+import MaterialButton from '@/components/MaterialButton.js';
 
 const initialText = '123456789'.split('').join('\n');
 export default function Page() {
@@ -12,7 +13,8 @@ export default function Page() {
   }, [text]);
 
   return (
-    <div className="relative mx-auto my-0 max-w-xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-32">
+    <div className="relative mx-auto my-0 max-w-2xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-32">
+      <h1>Shuffle</h1>
       <section className="mt-8">
         <div className="flex justify-center">
           <textarea
@@ -25,12 +27,7 @@ export default function Page() {
           />
         </div>
         <div className="mx-auto mt-4">
-          <button
-            className="rounded border border-white px-4 py-1 transition-all duration-300 ease-in-out [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:text-primary"
-            onClick={handleShuffle}
-          >
-            Shuffle
-          </button>
+          <MaterialButton onClick={handleShuffle}>Shuffle</MaterialButton>
         </div>
       </section>
     </div>
