@@ -28,10 +28,11 @@ export function getRandomColor() {
 }
 
 export function colorHexToRGB(color = '#FFFFFF') {
+  if (!color.match(/^(#{0,1}[0-9a-fA-F]{3,6})$/))
+    throw Error('Unknown color parameter');
   let colorHex = color.charAt(0) === '#' ? color.slice(1) : color;
   if (colorHex.length === 3)
     colorHex = `${colorHex[0]}${colorHex[0]}${colorHex[1]}${colorHex[1]}${colorHex[2]}${colorHex[2]}`;
-  if (colorHex.length !== 6) throw Error('Unknown color parameter');
 
   const R = parseInt(colorHex.slice(0, 2), 16);
   const G = parseInt(colorHex.slice(2, 4), 16);

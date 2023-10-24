@@ -1,31 +1,51 @@
-function getRandomNumber(min = 1, max = 100) {
-  const array = new Uint32Array(10);
-  crypto.getRandomValues(array)[0];
-  const range = max - min + 1;
-  return (array[0] % range) + min;
-}
+import {
+  getRandomNumber,
+  getMathRandomNumber,
+  // getRandomUUID,
+} from '../getRandomValue.js';
 
-// function getMathRandomNumber(min = 1, max = 100) {
-//   const base = Math.ceil(min);
-//   const limit = Math.floor(max);
-//   // The maximum is inclusive and the minimum is inclusive
-//   return Math.floor(Math.random() * (limit - base + 1) + base);
-// }
+describe('Test function getRandomNumber', () => {
+  test('Is a number', () => {
+    expect(isNaN(getRandomNumber())).toBeFalsy();
+  });
+  test('Is greater than min', () => {
+    expect(getRandomNumber(1, 100)).toBeGreaterThanOrEqual(1);
+  });
+  test('Is less than max', () => {
+    expect(getRandomNumber(1, 100)).toBeLessThanOrEqual(100);
+  });
+});
 
-const test1 = function () {
-  const num = 100;
-  let array = [],
-    total = 0;
+describe('Test function getMathRandomNumber', () => {
+  test('Is a number', () => {
+    expect(isNaN(getMathRandomNumber())).toBeFalsy();
+  });
+  test('Is greater than min', () => {
+    expect(getMathRandomNumber(1, 100)).toBeGreaterThan(1);
+  });
+  test('Is less than max', () => {
+    expect(getMathRandomNumber(1, 100)).toBeLessThan(100);
+  });
+});
 
-  for (let i = 0; i < num; i++) {
-    const n = getRandomNumber(1, num);
-    array[i] = n;
-    total += n;
-  }
-  console.log('Length', array.length);
-  // array.sort((a, b) => a - b);
-  console.log('Test 1 Avg', Number(total / num).toFixed(2));
-  console.log('Test 1 Median', array[2500], array[5000], array[7500]);
-};
-
-test1();
+// describe('Test function getRandomUUID', () => {
+//   test('Has correct string length', () => {
+//     expect(getRandomUUID()).toBe(undefined);
+//   });
+//   test('Has correct string length', () => {
+//     const uuid = getRandomUUID();
+//     expect(uuid.length).toBe(36);
+//   });
+//   test('Has correct string length', () => {
+//     const uuid = getRandomUUID();
+//     expect(uuid?.split('-').length).toBe(5);
+//   });
+//   test('Has correct string regexp format', () => {
+//     const uuid = getRandomUUID();
+//     expect(
+//       uuid.match(
+//         /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/
+//       )
+//     ).toBeTruthy();
+//   });
+// });

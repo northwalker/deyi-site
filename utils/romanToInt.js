@@ -23,16 +23,14 @@ export default function romanToInt(s) {
   while (i < s.length) {
     const c = s.charAt(i);
     const value = romanValues[c];
-    if (value) {
-      const nextValue = romanValues[s.charAt(i + 1)];
-      if (nextValue > value) {
-        sum += romanValues[s.charAt(i + 1)] - romanValues[c];
-        i += 2;
-      } else {
-        sum += romanValues[c];
-        i++;
-      }
-    } else i++;
+    const nextValue = romanValues[s.charAt(i + 1)];
+    if (value && nextValue && nextValue > value) {
+      sum += romanValues[s.charAt(i + 1)] - romanValues[c];
+      i += 2;
+    } else {
+      sum += romanValues[c];
+      i++;
+    }
   }
   return sum;
 }

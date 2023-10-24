@@ -13,7 +13,7 @@ export function getMathRandomNumber(min = 1, max = 100) {
 }
 
 export function getRandomUUID() {
-  return crypto.randomUUID();
+  return crypto?.randomUUID?.();
 }
 
 export default getRandomNumber;
