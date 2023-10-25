@@ -31,6 +31,11 @@ export default function Page() {
               Shuffle
             </Link>
           </li>
+          <li className="mt-8 list-disc">
+            <Link href="/tools/lots" aria-label="Lots">
+              Lots
+            </Link>
+          </li>
         </ul>
       </section>
     </div>

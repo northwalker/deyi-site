@@ -49,9 +49,9 @@ export default function Page() {
           />
         </div>
         <div className="mt-8 flex items-center justify-center">Use a mode</div>
-        <div className="mt-2 flex flex-col items-center justify-center md:flex-row [&>button]:mr-4 [&>button]:mt-4">
+        <div className="mt-2 flex flex-col items-center justify-center md:flex-row">
           <MaterialButton
-            className="w-40"
+            className="mr-4 mt-4 w-40"
             onClick={() => {
               setMinNumber(1);
               setMaxNumber(2);
@@ -61,7 +61,7 @@ export default function Page() {
             Flip a Coin
           </MaterialButton>
           <MaterialButton
-            className="w-40"
+            className="mr-4 mt-4 w-40"
             onClick={() => {
               setMinNumber(1);
               setMaxNumber(6);
@@ -71,7 +71,7 @@ export default function Page() {
             Roll the dice
           </MaterialButton>
           <MaterialButton
-            className="w-40"
+            className="mr-4 mt-4 w-40"
             onClick={() => {
               setMinNumber(1);
               setMaxNumber(100);
