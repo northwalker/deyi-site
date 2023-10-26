@@ -19,26 +19,25 @@ export default function Page() {
   }, [textRomanNumber]);
 
   return (
-    <div className="relative mx-auto my-0 max-w-2xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-32">
+    <div className="relative mx-auto my-0 max-w-2xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-16">
       <h1>Roman Numbers</h1>
-      <section className="mt-8 flex flex-row">
-        <div className="basis-1/3">
+      <section className="mt-8 flex flex-col items-center justify-center sm:flex-row">
+        <div className="mx-4 my-4 flex flex-col items-center justify-center">
           <textarea
-            className="p-2 text-gray-800"
-            placeholder="Enter a number!"
+            className="mb-4 p-2 text-gray-800"
+            placeholder="Enter a decimal number!"
             autoComplete="off"
             rows={10}
             value={textNumber}
             onChange={(e) => setTextNumber(e.target.value)}
           />
           <MaterialButton onClick={handleIntToRoman}>
-            Integer to Random
+            Integer to Roman
           </MaterialButton>
         </div>
-        <div className="basis-1/3"></div>
-        <div className="basis-1/3">
+        <div className="mx-4 my-4 flex flex-col items-center justify-center">
           <textarea
-            className="p-2 text-gray-800"
+            className="mb-4 p-2 text-gray-800"
             placeholder="Enter a Roman number!"
             autoComplete="off"
             rows={10}
@@ -46,7 +45,7 @@ export default function Page() {
             onChange={(e) => setTextRomanNumber(e.target.value)}
           />
           <MaterialButton onClick={handleRomanToInt}>
-            Random to Integer
+            Roman to Integer
           </MaterialButton>
         </div>
       </section>

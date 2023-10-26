@@ -18,7 +18,7 @@ export default function Page() {
   }, [list]);
 
   return (
-    <div className="relative mx-auto my-0 max-w-3xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-32 ">
+    <div className="relative mx-auto my-0 max-w-3xl px-4 pb-0 pt-4 text-center text-lg text-black dark:text-white md:pt-16">
       <h1>
         Lots
         {winnerIndex !== null ? ` Winner: ${result[winnerIndex]}` : null}
@@ -34,7 +34,7 @@ export default function Page() {
                   serWinnerIndex(null);
                 }}
               >
-                Redraw
+                Reset All
               </MaterialButton>
               {winnerIndex !== null && (
                 <>
@@ -46,7 +46,7 @@ export default function Page() {
                       }, 500);
                     }}
                   >
-                    Reset winner
+                    Random again
                   </MaterialButton>
                   <MaterialButton
                     onClick={() => {
