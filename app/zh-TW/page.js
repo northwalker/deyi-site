@@ -84,7 +84,7 @@ export default function LanguagePage() {
               Linkedin
             </a>
           </p>
-          <div>- -</div>
+          {/* <div>- -</div> */}
           <p>
             {/* <Link className="social-link" href="/" aria-label="English">
               <svg
@@ -97,11 +97,11 @@ export default function LanguagePage() {
               </svg>
               English
             </Link> */}
-            <a
+            {/* <a
               className="social-link"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://northwalker.web.app/resume/DE-YI_HUANG_Resume.pdf"
+              href={process.env.RESUME_URL}
               title="De-Yi Huang Resume"
               aria-label="Resume Link"
               type="application/pdf"
@@ -115,7 +115,7 @@ export default function LanguagePage() {
                 <path d="M6,8 C9.33333333,8 11,8 11,8 C11,8 11,8.66666667 11,10 L6,10 L6,18 L14,18 L14,13 L16,13 L16,18 C16,19.1045695 15.1045695,20 14,20 L6,20 C4.8954305,20 4,19.1045695 4,18 L4,10 C4,8.8954305 4.8954305,8 6,8 Z M16.613961,6 L12,6 L12,4 L20,4 L20,12 L18,12 L18,7.44238816 L12.6642136,12.7781746 L11.25,11.363961 L16.613961,6 Z" />
               </svg>
               Resume
-            </a>
+            </a> */}
           </p>
         </div>
       </main>
