@@ -11,7 +11,7 @@ export default function LanguagePage() {
       <main className="animate-fadeInUp text-neutral-600 dark:text-slate-200">
         <div>
           <p>一個前端及軟體開發的工程師。</p>
-          <p>有路，咱沿路唱歌；無路，咱蹽溪過嶺。</p>
+          <p>有路，咱沿路唱歌；無路，咱蹽溪過嶺。一起朝有光的地方前進。</p>
           <p>：）</p>
         </div>
 

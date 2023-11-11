@@ -4,9 +4,9 @@ import DarkModeSwitcher from './DarkModeSwitcher.js';
 
 export default function NavigatorHeader() {
   return (
-    <div className="fixed right-4 top-8 flex items-center justify-center">
-      <LanguageSwitcher />
+    <div className="fixed right-4 top-8 flex items-center justify-center [&>*:first-child]:mr-1">
       <DarkModeSwitcher />
+      <LanguageSwitcher />
     </div>
   );
 }
